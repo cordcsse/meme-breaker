@@ -1,0 +1,17 @@
+# package ngen
+# import Shape, Atom
+
+interface Collidable => {
+    collide(Collidable) -> void
+}
+abstract Bounded<T> => {
+    boundary<T> -> lambda: bool
+    getBounds<T> -> Vector<PositionPair>
+}
+
+possibleCollision(Vector<Bounded>) -> Vector<collisionTriple> {
+    lBound < rBound || tBound < bBound ? (left|top, right|bottom, bool) : next
+}
+findCollision(Vector<collisionTriple>) -> void {
+    inBounds(collisionObject, collisionObject, bool) ? call(collide, Vector<collisionTriple>)
+}

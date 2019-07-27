@@ -1,0 +1,19 @@
+# package ngen;
+
+new Position(int, int)
+
+class Position => {
+    x: int,
+    y: int,
+
+    translate(Translations) -> Position
+}
+
+new Dimension(Vector<int>)
+
+class Dimension => {
+    width: Vector<int>,
+    height: Vector<int>
+
+    translate(Translations) -> Dimension
+}
