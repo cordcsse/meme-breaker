@@ -1,0 +1,34 @@
+# package ngen;
+# import Atom, Shape;
+
+new Ellipse(Position, Dimension[2])
+
+class Ellipse(Shape) => {
+    center: Position,
+    radii: Dimension[2] { xRadius, yRadius }
+
+    vertices -> generator: List<Position>
+
+    # (x - cx)^2/xRadius + (y - cy)^2/yRadius = 1
+    getBoundary -> lambda: bool {
+        dist(PositionX, center) < xRadius,
+        dist(PositionY, center) < yRadius
+    }
+    getVertex(int, bool) -> Position
+ 
+    translate(Translations) -> Ellipse
+}
+
+new Ellipse::Circle(Position, int)
+
+variant Ellipse::Circle => {
+    super(Position, Dimension[1] -> Dimension[2])
+    radii: { radius }
+
+    # (x - cx)^2 + (y - cy)^2 = r^2
+    getBoundary -> lambda: bool {
+        dist(Position, center) < radius
+    }
+
+    translate(Translations) -> Circle
+}

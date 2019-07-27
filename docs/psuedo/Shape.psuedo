@@ -1,0 +1,14 @@
+# package ngen;
+# import Atom;
+
+new Shape(Position, List<Position>)
+
+class Shape => {
+    center: Position,
+    vertices: List<Position>
+
+    getBoundary -> lambda: bool
+    getVertex(int, bool) -> Position
+
+    translate(Translations) -> Shape
+}

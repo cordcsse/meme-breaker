@@ -1,0 +1,43 @@
+# package ngen;
+# import Atom, Shape;
+
+new Quad(Position, Dimension[4])
+
+class Quad(Shape) => {
+    center: Position,
+    lengths: Dimension[4] { top, bottom, left, right }
+
+    vertices -> List<Position>
+
+    getBoundary -> lambda: bool
+    getVertex(int, bool) -> Position
+
+    translate(Translation) -> Quad
+}
+
+new Quad::Rect(Position, Dimension[2])
+
+variant Quad::Rect => {
+    super(Position, Dimension[2] -> Dimension[4])
+    lengths: { width, height }
+
+    getBoundary -> lambda: bool {
+        dist(PositionX, center) < width,
+        dist(PositionY, center) < height
+    }
+
+    translate(Translation) -> Rect
+}
+
+new Quad::Square(Position, int)
+
+variant Quad::Square => {
+    super(Position, Dimension[1] -> Dimension[4])
+    lengths: { width }
+
+    getBoundary -> lambda: bool {
+        dist(PositionX, center) || dist(PositionY, center) < width
+    }
+
+    translate(Translation) -> Square
+}
