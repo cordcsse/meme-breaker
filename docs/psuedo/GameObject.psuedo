@@ -1,0 +1,12 @@
+# package main;
+# import ngen;
+
+new GameObject(Shape, Vector<Speed>)
+
+class GameObject => {
+    form: Shape,
+    velocity: Vector<Speed>,
+
+    morph(Translation) -> void
+    collide(GameObject, bool) -> void
+}
