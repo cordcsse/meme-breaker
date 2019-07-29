@@ -1,6 +1,8 @@
+package memebreaker.ngen;
 /**
  * GameObject
  */
+
 abstract class GameObject {
     private class Dimensions {
         protected int width;
@@ -9,8 +11,7 @@ abstract class GameObject {
             this.width = width; this.height = height;
         }
         public int[] get() {
-            int[] result = { this.width, this.height };
-            return(result);
+            return(new int[]{ this.width, this.height });
         }
     }
     private class Position {
@@ -20,8 +21,7 @@ abstract class GameObject {
             this.x = x; this.y = y;
         }
         public int[] get() {
-            int[] result = { this.x, this.y };
-            return(result);
+            return(new int[]{ this.x, this.y });
         }
     }
 
