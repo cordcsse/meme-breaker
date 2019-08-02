@@ -1,6 +1,6 @@
 package memebreaker.ngen;
 /**
- * Collidable
+ * Collidable Functional Interface
  */
 
 public interface Collidable<T> {
