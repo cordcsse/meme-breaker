@@ -22,5 +22,7 @@ public class MainWindow extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
-    
 }
+
+// Copyright (C) 2019 CSSE Club. Licensed under the Educational Community License, Version 2.0.
+// See LICENSE.

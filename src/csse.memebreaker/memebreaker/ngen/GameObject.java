@@ -37,3 +37,6 @@ abstract class GameObject {
 
     abstract void update();
 }
+
+// Copyright (C) 2019 CSSE Club. Licensed under the Educational Community License, Version 2.0.
+// See LICENSE.
