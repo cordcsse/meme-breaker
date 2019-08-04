@@ -1,4 +1,4 @@
-package memebreaker;
+package memebreaker.main;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
@@ -14,3 +14,6 @@ public class App {
         });
     }
 }
+
+// Copyright (C) 2019 CSSE Club. Licensed under the Educational Community License, Version 2.0.
+// See LICENSE.
