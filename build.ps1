@@ -6,7 +6,7 @@ param(
 )
 
 $locaL:module = "csse.memebreaker"
-$local:entryClass = "memebreaker.App"
+$local:entryClass = "memebreaker.main.App"
 
 # Build
 if ($command.Equals("build")) {
@@ -18,8 +18,8 @@ if ($command.Equals("build")) {
 
 # Run
 if ($command.Equals("run")) {
-    if (Test-Path -Path "build/csse.memebreaker.jar") {
-        java @("-jar", "$locaL:module.jar") 
+    if (Test-Path -Path "build/$local:module.jar") {
+        java @("-jar", "build/$locaL:module.jar") 
     } else {
         java @("--module-path=build", "--module=$locaL:module/$local:entryClass")
     }
