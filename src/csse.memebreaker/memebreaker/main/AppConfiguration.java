@@ -1,6 +1,6 @@
-package memebreaker.utils;
+package memebreaker.main;
 /**
- * AppConfiguration (Singleton) Class
+ * AppConfiguration Class (Optional: Singleton)
  */
 import java.util.Arrays;
 import java.util.Collection;
@@ -8,7 +8,10 @@ import java.util.EnumSet;
 import java.util.Optional;
 
 public final class AppConfiguration {
-    private static enum AllowedOptions { ANIMATED_BACKGROUND, SOUND, MUSIC, OFFLINE; }
+    /** Add new options here */
+    private static enum AllowedOptions {
+        ANIMATED_BACKGROUND, SOUND, MUSIC, OFFLINE;
+    }
     private EnumSet<AllowedOptions> options;
 
     private static Boolean match(String option, Collection<AllowedOptions> c) {
@@ -43,3 +46,6 @@ public final class AppConfiguration {
         ));
     }
 }
+
+// Copyright (C) 2019 CSSE Club. Licensed under the Educational Community License, Version 2.0.
+// See LICENSE.
