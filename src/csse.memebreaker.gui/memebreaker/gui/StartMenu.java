@@ -1,4 +1,4 @@
-package memebreaker.ui;
+package memebreaker.gui;
 
 import java.awt.Window;
 
