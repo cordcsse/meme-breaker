@@ -1,7 +1,6 @@
 package memebreaker.gui;
 
-import memebreaker.core.AppConfiguration;
-
+import memebreaker.core.AppConfig;
 /**
  * GameConfig
  */
@@ -12,5 +11,5 @@ public class GameConfig {
         ANIMATED_BACKGROUND, SOUND, MUSIC, OFFLINE;
     }
 
-    public static final AppConfiguration config = new AppConfig(AllowedOptions.class); 
+    public static final AppConfig config = new AppConfig(AllowedOptions.class); 
 }
