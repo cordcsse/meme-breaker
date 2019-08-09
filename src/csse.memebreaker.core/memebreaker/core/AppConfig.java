@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.EnumSet;
 import java.util.Optional;
 
-public final class AppConfiguration {
+public final class AppConfig {
     /** Add new options here */
     private static enum AllowedOptions {
         ANIMATED_BACKGROUND, SOUND, MUSIC, OFFLINE;
