@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="styles.css" type="text/css"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 540">
+  <title>MemeBreaker Container Diagram</title>
+  <desc>Two groups, each of two rectangles</desc>
+  <rect class="diagram" width="100%" height="100%" />
+  <g id="diagram-body" transform="scale(0.9,0.9) translate(24,24)">
+    <rect class="zoomed box" width="672" height="492" />
+    <g id="gui-container" transform="translate(91,24)">
+      <rect class="box" width="200" height="150" />
+      <text class="text head" x="100" y="40" xml:space="preserve">Graphical Interface</text>
+      <text class="text attr" x="100" y="60" xml:space="preserve">[Container: Java]</text>
+      <text class="text body" x="100" y="90" xml:space="preserve">&lt;Comment&gt;</text>
+    </g>
+    <g id="cli-container" transform="translate(381,24)">
+      <rect class="box" width="200" height="150" />
+      <text class="text head" x="100" y="40" xml:space="preserve">Command Line Interface</text>
+      <text class="text attr" x="100" y="60" xml:space="preserve">[Container: Java]</text>
+      <text class="text body" x="100" y="90" xml:space="preserve">&lt;Comment&gt;</text>      
+    </g>
+    <g id="core-container" transform="translate(236,318)">
+      <rect class="box" width="200" height="150" />
+      <text class="text head" x="100" y="40" xml:space="preserve">Game Core</text>
+      <text class="text attr" x="100" y="60" xml:space="preserve">[Container: Java]</text>
+      <text class="text body" x="100" y="90" xml:space="preserve">&lt;Comment&gt;</text>
+    </g>
+    <g id="gui-core-connection" class="depends" transform="translate(303,318) rotate(145)">
+      <line class="line depends" x1="0" y1="30" x2="0" y2="175" />
+      <polygon points="-5,30 0,0 5,30 0,20" />
+    </g>
+    <g id="cli-core-connection" class="depends" transform="translate(369,318) rotate(-145)">
+      <line class="line depends" x1="0" y1="30" x2="0" y2="175" />
+      <polygon points="-5,30 0,0 5,30 0,20" />
+    </g>
+  </g>
+  <g id="diagram-desc" transform="translate(0,468)">
+    <text font-size="18" font-weight="bold" x="24" y="24">Container Diagram for MemeBreaker Game</text>
+    <text font-size="14" x="24" y="40">The containers diagram for the MemeBreaker Game.</text>
+  </g>
+</svg>
