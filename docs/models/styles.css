@@ -3,18 +3,18 @@
 }
 
 .box {
-    fill-opacity: 0.5;
     stroke-width: 2;
-    fill: #0033ff;
+    fill: #0033dd;
     stroke: #000000;
 }
 .zoomed {
+    fill-opacity: 0.5;
     fill: #c0c0c0;
     stroke: grey;
     stroke-dasharray: 16;
 }
 .text {
-    fill: #000000;
+    fill: #fff;
     font-family: sans-serif;
     text-anchor: middle;
 }
@@ -23,7 +23,10 @@
     font-weight: bold;
 }
 .text.attr { font-size: 0.75em; }
-.text.body { font-size: 0.75em; }
+.text.body {
+    font-size: 0.75em;
+    text-anchor: start;
+}
 
 /* Connectors */
 .depends {
@@ -33,5 +36,5 @@
     stroke-linecap: round; 
 }
 .depends.line {
-    stroke-dasharray: 8;
+    stroke-dasharray: 10;
 }
