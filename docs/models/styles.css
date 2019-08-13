@@ -1,0 +1,40 @@
+.diagram {
+    fill: #ffffff;
+}
+
+.box {
+    stroke-width: 2;
+    fill: #0033dd;
+    stroke: #000000;
+}
+.zoomed {
+    fill-opacity: 0.5;
+    fill: #c0c0c0;
+    stroke: grey;
+    stroke-dasharray: 16;
+}
+.text {
+    fill: #fff;
+    font-family: sans-serif;
+    text-anchor: middle;
+}
+.text.head {
+    font-size: 1em;
+    font-weight: bold;
+}
+.text.attr { font-size: 0.75em; }
+.text.body {
+    font-size: 0.75em;
+    text-anchor: start;
+}
+
+/* Connectors */
+.depends {
+    fill: #414141;
+    stroke: #414141;
+    stroke-width: 2;
+    stroke-linecap: round; 
+}
+.depends.line {
+    stroke-dasharray: 10;
+}

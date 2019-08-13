@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="styles.css" type="text/css"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 540">
+  <title>MemeBreaker Container Diagram</title>
+  <desc>This is a container diagram describing the dependancy of the container upon one another</desc>
+  <rect class="diagram" width="100%" height="100%" />
+  <g id="diagram-body" transform="scale(0.9,0.9) translate(24,24)">
+    <defs>
+      <symbol id="container">
+        <rect class="box" width="216" height="162" rx="8" />
+      </symbol>
+      <g id="depends">
+        <line class="line depends" x1="0" y1="18" x2="0" y2="128" />
+        <polygon class="depends" points="-8,16 0,0 8,16 0,12" />
+      </g>
+    </defs>
+    <rect class="zoomed box" width="672" height="492" />
+    <g id="gui-container" transform="translate(91,24)">
+      <use href="#container"/>
+      <g transform="translate(108,40)">
+        <text class="text head" xml:space="preserve">Graphical Front-End</text>
+        <text class="text attr" y="20" xml:space="preserve">[Container: Java]</text>
+      </g>
+      <text class="text body" transform="translate(24,90)" xml:space="preserve">
+        <tspan x="0"></tspan>
+        <tspan x="0" dy="1em"></tspan>
+      </text>
+    </g>
+    <g id="cli-container" transform="translate(381,24)">
+      <use href="#container" />
+      <g transform="translate(108,40)">
+        <text class="text head" xml:space="preserve">Command Line Front-End</text>
+        <text class="text attr" y="20" xml:space="preserve">[Container: Java]</text>
+      </g>
+      <text class="text body" transform="translate(24,90)" xml:space="preserve">
+        <tspan x="0"></tspan>
+        <tspan x="0" dy="1em"></tspan>
+      </text>
+    </g>
+    <g id="core-container" transform="translate(236,318)">
+      <use href="#container" />
+      <g transform="translate(108,40)">
+        <text class="text head" xml:space="preserve">Core</text>
+        <text class="text attr" y="20" xml:space="preserve">[Container: Java]</text>
+      </g>
+      <text class="text body" transform="translate(24,90)" xml:space="preserve">
+        <tspan x="0">Core components for essential</tspan>
+        <tspan x="0" dy="1em">gameplay aspects (features,</tspan>
+        <tspan x="0" dy="1em">rules, logic)</tspan>
+      </text>
+    </g>
+    <use id="gui-core-connection" href="#depends" transform="translate(303,318) rotate(145) scale(1.2)" />
+    <use id="cli-core-connection" href="#depends" transform="translate(369,318) rotate(-145) scale(1.2)" />
+  </g>
+  <g id="diagram-desc" transform="translate(0,468)">
+    <text font-size="18" font-weight="bold" x="24" y="24">Container Diagram for MemeBreaker Game</text>
+    <text font-size="14" x="24" y="40">The container diagram for the MemeBreaker Game.</text>
+  </g>
+</svg>
