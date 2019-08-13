@@ -1,8 +1,8 @@
 package memebreaker.ngen;
+
 /**
  * GameObject
  */
-
 abstract class GameObject {
     private class Dimensions {
         protected int width;

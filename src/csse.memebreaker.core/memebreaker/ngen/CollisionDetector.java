@@ -1,8 +1,14 @@
 package memebreaker.ngen;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 /**
  * CollisionDetector
  */
 public class CollisionDetector {
+
+    ArrayList<GameObject> env;
+
     Boolean detectCollision(GameObject object1, GameObject object2) {
         return(object1.collision(object2));
     }
