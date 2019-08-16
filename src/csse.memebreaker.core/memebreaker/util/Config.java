@@ -1,62 +1,74 @@
-package memebreaker.core;
+package memebreaker.util;
 
 import java.util.*;
+import memebreaker.util.ConfigOptions;
 /**
- * AppConfig<E> Class (optionally: Singleton)</p>
+ * <b>Config Class</b></p>
  * 
- * This class will take a List<Options> (Options -> { name, default, value })
- *   inserts them into a <Map>  </p>
+ * This class will be instantiated once, as an interpreted Singleton, and will have it's 
+ *   options set and reset during operation. </p>
  * 
- * input: List<AllowedOptions>
- * output: Value<Option> | List<AllowedOptions> | List<SetOptions> | SetValue(<Value>)
+ * input: Map&lt;ConfigOptions, String> </p>
+ * output: Value<String> | ValueList<String> | EnumMap<ConfigOptions, OptionValue>
  */ 
-public final class AppConfig<E extends Enum<E>> {
+public final class Config {
     private final static class OptionValue {
-        private final String defaultValue;
-        private Optional<String> value;
+        private final Object defaultValue;
+        private Optional<Object> value;
 
-        public OptionValue() { this("", null); }
-        public OptionValue(final String defaultValue) { this((defaultValue == null) ? "" : defaultValue, null); }
-        public OptionValue(final String defaultValue, final String initialValue) {
+        public OptionValue(final Object defaultValue) { this((defaultValue == null) ? "" : defaultValue, null); }
+        public OptionValue(final Object defaultValue, final Object initialValue) {
             this.defaultValue = defaultValue;
             this.value = Optional.ofNullable(initialValue);
         }
-        public final String get() {
+        public final Object get() {
             return(this.value.isPresent() ? this.value.get() : this.defaultValue);
         }
-        public final void set(final String value) {
+        public final void set(final Object value) {
             this.value = Optional.ofNullable(value);
         }
     }
 
-    private final Class<E> allowedOptions;
-    private EnumMap<E, OptionValue> options;
+    private EnumMap<ConfigOptions, OptionValue> options;
 
-    public AppConfig(final Class<E> c) {
-        this.allowedOptions = c;
-        this.options = new EnumMap<>(c);
-        for (final E option : allowedOptions.getEnumConstants()) {
-            options.putIfAbsent(option, new OptionValue());
-        }
+    public Config() {
+        options = new EnumMap<>(ConfigOptions.class);
+        EnumSet.allOf(ConfigOptions.class)
+            .stream().forEach(e -> options.putIfAbsent(e, new OptionValue(e.defaultValue)));
     }
-    public AppConfig(final Class<E> c, final E optionKey, final String optionValue) {
-        this(c);
+    public Config(final ConfigOptions optionKey, final Object optionValue) {
+        this();
         this.setDefault(optionKey, optionValue);
     }
-    public AppConfig(final Class<E> c, final Map<E, String> optionMap) {
-        this(c);
+    public Config(final Map<ConfigOptions, String> optionMap) {
+        this();
         optionMap.entrySet().stream()
             .forEach(e -> this.setDefault(e.getKey(), e.getValue()));
     }
-    private void setDefault(final E optionKey, final String optionValue) {
-        options.put(optionKey, new OptionValue(optionValue));
+    // --- --- ---
+
+    private void setDefault(final ConfigOptions optionKey, final Object optionValue) {
+        options.put(optionKey, new OptionValue(optionKey.defaultValue, optionValue));
     }
 
-    public String getOption(final E optionKey) {
+    public Object getOption(final ConfigOptions optionKey) {
         return(this.options.get(optionKey).get());
     }
-    public void setOption(final E optionKey, final String optionValue) {
+
+    public void setOption(final ConfigOptions optionKey, final Object optionValue) {
         this.options.get(optionKey).set(optionValue);
+    }
+
+    public List<Object> listOptions(final Collection<ConfigOptions> optionKeys) {
+        List<Object> result = new ArrayList<>();
+        optionKeys.forEach(
+            option -> {
+                result.add(option);
+                result.add(this.options.get(option).get());
+            }
+        );
+
+        return(List.copyOf(result));
     }
 }
 
