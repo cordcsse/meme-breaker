@@ -2,9 +2,9 @@ package memebreaker.util;
 
 import java.util.Optional;
 /**
- * Options
+ * Option
  */
-public enum Options {
+public enum Option {
     /** ADD NEW OPTIONS HERE
      *  Format: NAME(defaultValue)
      */
@@ -17,7 +17,7 @@ public enum Options {
     public final Object defaultValue;
     private transient Optional<Object> value;
 
-    Options(Object defaultValue) {
+    Option(Object defaultValue) {
         this.defaultValue = defaultValue;
         this.value = Optional.ofNullable(null);
     }
