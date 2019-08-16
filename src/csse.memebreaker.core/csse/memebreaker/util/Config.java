@@ -1,7 +1,7 @@
-package memebreaker.util;
+package csse.memebreaker.util;
 
 import java.util.*;
-import memebreaker.util.Option;
+import csse.memebreaker.util.Option;
 /**
  * <b>Config Class</b></p>
  * 

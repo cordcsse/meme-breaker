@@ -1,6 +1,6 @@
-package memebreaker.gui;
+package csse.memebreaker.gui;
 
-import memebreaker.core.AppConfig;
+import csse.memebreaker.core.AppConfig;
 /**
  * GameConfig
  */

@@ -1,4 +1,4 @@
-package memebreaker.core;
+package csse.memebreaker.core;
 
 /**
  * The Runnable Game Class </p>

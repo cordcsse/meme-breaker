@@ -1,4 +1,4 @@
-package memebreaker.ngen;
+package csse.memebreaker.ngen;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;

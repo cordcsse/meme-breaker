@@ -1,4 +1,4 @@
-package memebreaker.ngen;
+package csse.memebreaker.ngen;
 
 /**
  * Collidable Functional Interface

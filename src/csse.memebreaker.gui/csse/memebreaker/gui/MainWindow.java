@@ -1,4 +1,4 @@
-package memebreaker.gui;
+package csse.memebreaker.gui;
 /**
  * MainWindow
  */
