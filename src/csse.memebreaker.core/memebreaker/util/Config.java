@@ -1,75 +1,51 @@
 package memebreaker.util;
 
 import java.util.*;
-import memebreaker.util.ConfigOptions;
+import memebreaker.util.Options;
 /**
  * <b>Config Class</b></p>
  * 
  * This class will be instantiated once, as an interpreted Singleton, and will have it's 
  *   options set and reset during operation. </p>
  * 
- * input: Map&lt;ConfigOptions, String> </p>
- * output: Value<String> | ValueList<String> | EnumMap<ConfigOptions, OptionValue>
+ * input: Map&lt;Options, String> </p>
+ * output: Value<String> | ValueList<String> | EnumMap<Options, OptionValue>
  */ 
 public final class Config {
-    private final static class OptionValue {
-        private final Object defaultValue;
-        private Optional<Object> value;
 
-        public OptionValue(final Object defaultValue) { this((defaultValue == null) ? "" : defaultValue, null); }
-        public OptionValue(final Object defaultValue, final Object initialValue) {
-            this.defaultValue = defaultValue;
-            this.value = Optional.ofNullable(initialValue);
-        }
-        public final Object get() {
-            return(this.value.isPresent() ? this.value.get() : this.defaultValue);
-        }
-        public final void set(final Object value) {
-            this.value = Optional.ofNullable(value);
-        }
-    }
-
-    private EnumMap<ConfigOptions, OptionValue> options;
+    private final Map<String, Options> options;
 
     public Config() {
-        options = new EnumMap<>(ConfigOptions.class);
-        EnumSet.allOf(ConfigOptions.class)
-            .stream().forEach(e -> options.putIfAbsent(e, new OptionValue(e.defaultValue)));
+        Map<String, Options> tempMap = new HashMap<>();
+        for (Options opt : Options.values()) {
+            tempMap.put(opt.name(), opt);
+        }
+        this.options = Map.copyOf(tempMap);
     }
-    public Config(final ConfigOptions optionKey, final Object optionValue) {
+    public Config(final Options key, final Object value) {
         this();
-        this.setDefault(optionKey, optionValue);
+        this.setOption(key, value);
     }
-    public Config(final Map<ConfigOptions, String> optionMap) {
+    public Config(final Map<Options, String> optionMap) {
         this();
         optionMap.entrySet().stream()
-            .forEach(e -> this.setDefault(e.getKey(), e.getValue()));
+            .forEach(e -> this.setOption(e.getKey(), e.getValue()));
     }
     // --- --- ---
 
-    private void setDefault(final ConfigOptions optionKey, final Object optionValue) {
-        options.put(optionKey, new OptionValue(optionKey.defaultValue, optionValue));
+    public List<Options> listOptions() {
+        return(List.copyOf(this.options.values()));
     }
 
-    public Object getOption(final ConfigOptions optionKey) {
-        return(this.options.get(optionKey).get());
+    public Object getOption(final String option) {
+        return(options.get(option).get());
     }
+    public Object getOption(final Options option) { return(this.getOption(option.name())); }
 
-    public void setOption(final ConfigOptions optionKey, final Object optionValue) {
-        this.options.get(optionKey).set(optionValue);
+    public Boolean setOption(final String option, Object value) {
+        return(this.options.get(option).set(value));
     }
-
-    public List<Object> listOptions(final Collection<ConfigOptions> optionKeys) {
-        List<Object> result = new ArrayList<>();
-        optionKeys.forEach(
-            option -> {
-                result.add(option);
-                result.add(this.options.get(option).get());
-            }
-        );
-
-        return(List.copyOf(result));
-    }
+    public Boolean setOption(final Options option, final Object value) { return(this.setOption(option.name(), value)); }
 }
 
 // Copyright (C) 2019 CSSE Club. Licensed under the Educational Community License, Version 2.0.
